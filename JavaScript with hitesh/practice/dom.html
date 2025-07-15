@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    <title>Document</title>
+    <style>
+        #container{
+            background-color: rgb(72, 55, 55);
+            height: 500px;
+            width: 500px;
+            margin: 100px auto ;
+            border-radius: 30px;
+                
+        }
+        h2{
+            margin-left: 100px;
+            padding-top: 20px;
+        }
+        .days{
+            margin-left: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body style="background-color: #212121; color: #fff;">
+   <div id="container">
+     <h2>Week Days</h2>
+     <div class="days">Sunday</div>
+     <div class="days">Monday</div>
+     <div class="days">Tuesday</div>
+     <div class="days">Wednesday</div>
+   </div>
+</body>
+
+<script>
+     const dayOne = document.querySelector('.days');
+     console.log(dayOne); // Logs the first element with class 'day'
+     console.log(dayOne.parentElement); // Logs the parent element of the selected element
+     console.log(dayOne.nextElementSibling); // Logs the next sibling element of the selected element
+
+
+</script>
+</html>

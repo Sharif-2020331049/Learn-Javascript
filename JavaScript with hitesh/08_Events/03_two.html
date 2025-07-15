@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Js</title>
+</head>
+<body>
+    <h1>Chai Aur Code</h1>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+
+    /*
+    setTimeout()-> a method which 
+    takes two parameter 
+     i. handler -> callback or function reference
+     ii. amount time in mili second 
+    
+    */
+
+//    setTimeout(function(){
+//      console.log('Sharif');
+//    }, 3000);
+
+
+//    const saySharif = function(){
+//        console.log('Say Sharif');
+//     };
+//   setTimeout(saySharif, 4000);
+
+const changeText = function() {
+    const text= document.querySelector('h1');
+    text.innerHTML = 'Best JS Course';
+}
+
+// setTimeout(changeText, 5000);
+
+/*
+ I want to stop this event 
+  we use
+  clearTimeout() -> method which takes reference
+                  of which setTimeout we wanna stop.
+*/
+
+const changeMe =  setTimeout(changeText, 3000);
+document.querySelector('#stop').
+addEventListener('click', function(){
+    clearTimeout(changeMe);
+    console.log('Stopped');
+})
+
+
+</script>
+</html>

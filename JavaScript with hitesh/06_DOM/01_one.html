@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #2f2f2f;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+    <!-- 
+      // all we learn in console of web page
+        1.innerHTML: returns all html nodes 
+        2.textContent : returns all text content
+        3.innerText : gives the text in the selected node
+        4.querySelector
+        5.querySelectorAll
+        6.getAttribute
+        7.setAttribute
+     -->
+    <div >
+        <h1 id="head" >DOM Learning on chai aur code <span style="display: none;">test text</span> </h1>
+        <h2>Lorem, ipsum dolor.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+         <p>Lorem ipsum dolor sit amet consectetur.</p>
+
+         <input type="password">
+
+        <UL>
+            <li class="list-item" >ONE</li>
+            <li class="list-item">TWO</li>
+            <li class="list-item">THREE</li>
+            <li class="list-item">FOUR</li>
+            <li class="list-item">FIVE</li>
+            <li class="list-item">SIX</li>
+        </UL>
+    </div>
+</body>
+<script>
+    // Access the inner HTML of the h1 element
+    const heading = document.querySelector('#head');
+    console.log(heading.innerHTML);
+
+// Modify the inner HTML
+// heading.innerHTML = 'Updated DOM Learning on chai aur code <span>New text</span>';
+
+</script>
+</html>

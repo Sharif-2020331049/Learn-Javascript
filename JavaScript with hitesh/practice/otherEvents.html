@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mouse Over and Mouse Out Events</title>
+    <style>
+        button {
+            height: 20px;
+            width: 200px;
+            text-align: center;
+            background-color: chartreuse;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 300px 300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+
+    <script>
+        function random() {
+            return Math.floor(Math.random() * 256);
+        }
+
+        const btn = document.getElementById('btn');
+
+        function changeBackgroundColor() {
+            const randomColor = `rgb(${random()},${random()},${random()})`;
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        btn.addEventListener('mouseover', changeBackgroundColor);
+        btn.addEventListener('mouseout', changeBackgroundColor);
+
+        // btn.removeEventListener('mouseover', changeBackgroundColor() )
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Js</title>
+</head>
+<body>
+    <h1>Chai Aur JavaScript</h1>
+   
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+
+    /*
+     setInterval() -> a method which takes 3 arguments 
+        i. handler or function reference or callback function
+        ii. how much time in mili-second
+        iii. pass any argument in this handler or callbacks which is taken as a 
+            first parameter in setInterval() 
+    */
+   const changeText = function(name)
+   {
+      console.log(`${name}, how are you `, Date.now());
+   }
+
+   let intervalRef;
+   
+    document.querySelector('#start').addEventListener('click', 
+        function(){
+             intervalRef =  setInterval(changeText, 2000, 'sharif');
+        }
+    );
+
+    document.querySelector('#stop').addEventListener('click', ()=>{
+        clearInterval(intervalRef);
+
+    })
+
+</script>
+</html>

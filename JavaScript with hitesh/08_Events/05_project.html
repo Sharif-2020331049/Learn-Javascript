@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        html{
+            margin: 50px;
+        }
+        button{
+            padding: 12px;
+            width: 100px;
+            margin: 30px;
+            border-radius: 10px;
+            font-size: medium;
+            background-color: rgba(125, 51, 195, 0.347);
+        }
+    </style>
+</head>
+<body>
+    <h1>Life is colorless until you make it colored</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    function randomNum() {
+        return Math.round(Math.random() * 255);
+    }
+
+    function colorChange() {
+        document.body.style.backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+    }
+
+    const start = document.querySelector('#start');
+    let timeRef;
+    start.addEventListener('click', () => {
+        timeRef = setInterval(colorChange, 1000);
+    });
+
+    const stop = document.querySelector('#stop');
+    stop.addEventListener('click', () => {
+        clearInterval(timeRef);
+        timeRef=null;
+    });
+</script>
+</html>

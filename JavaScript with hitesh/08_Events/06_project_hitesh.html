@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+    <style>
+        html{
+            margin: 50px;
+        }
+        button{
+            padding: 12px;
+            width: 100px;
+            margin: 30px;
+            border-radius: 10px;
+            font-size: medium;
+            background-color: rgba(125, 51, 195, 0.347);
+        }
+    </style>
+</head>
+<body>
+    <h1>Pressing Start button background-color will be continuously changed in 1 second </h1>
+    <h1>Pressing Stop button background-color won't be changed </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+  <script>
+    // generate random color
+
+    const randomColor = function(){
+         const hexValue = '0123456789ABCDEF';
+         let color = '#';
+         for(let i=0; i<6; ++i){
+            color += hexValue[(Math.floor(Math.random()*16))];
+         }
+         return color;
+    }
+    // console.log(randomColor());
+    let intervalRef;
+    function startChangingColor(){
+       if(!intervalRef){
+        intervalRef =  setInterval(changeColor, 1000);
+       }
+
+        function changeColor(){
+            document.body.style.backgroundColor = randomColor();
+        }      
+    }
+
+    function stopChangingColor(){
+           clearInterval(intervalRef);
+           intervalRef = null;
+       }
+
+       
+    const start = document.querySelector('#start');
+    const stop = document.querySelector('#stop');
+
+    start.addEventListener('click', startChangingColor);
+    stop.addEventListener('click',stopChangingColor);
+     
+
+  </script>
+</html>

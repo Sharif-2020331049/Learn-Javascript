@@ -1,0 +1,29 @@
+1. JS default characteristics: 
+     i. JS Synchronous: Executes one line of code at a time in sequence.
+     ii. Single Threaded: JavaScript operates in a single-threaded environment,
+           meaning it can only perform one task at a time.
+
+2. Execution Context:
+   i. Executes one line of code at a time.
+   ii. The Call Stack and Memory Heap are parts of the execution context.
+       The call stack keeps track of function calls, while the memory heap is used for memory allocation.          
+
+3. Blocking Code: Blocks the flow of the program until the operation completes.
+
+4. Non-Blocking Code: Does not block execution and allows other operations to run concurrently.
+
+5. JavaScript Engine and Event Loop: 
+
+   i. JavaScript Engine Components: 
+       -Memory Heap: Stores variables and objects.
+       -Call Stack: Manages function calls and execution contexts.
+
+   ii. Web APIs and Asynchronous Execution:     
+     - Web API: External APIs provided by the browser (e.g., DOM API, setTimeout, setInterval, fetch).
+     -Functions like setTimeout, setInterval, and fetch are handled by Web APIs and 
+       return control to the JavaScript engine.  
+     -Callbacks: Registered in Web APIs and pushed to the callback queue after execution.
+
+   iii.  Event Loop:
+      -The event loop continuously checks the call stack and the task queue.
+      -When the call stack is empty, the event loop pushes tasks from the task queue to the call stack.       

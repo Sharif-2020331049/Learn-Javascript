@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Closure</title>
+</head>
+<body>
+
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    
+</body>
+<!--  1st Script: theory -->
+<script>
+
+   // Lexical Scoping :
+   /*
+   Lexical Scoping means that the scope of a variable is determined by its position in the source code. 
+   */
+   function outerFunction() {
+            let outerVariable = 'I am from outer scope';
+
+            function innerFunction() {
+                console.log(outerVariable);
+                console.log(outerVariable2);
+            }
+            let outerVariable2 = 'I am two 2'
+
+            innerFunction();
+     }
+
+        outerFunction();
+
+
+        // Closure:
+        /*
+        A closure is a feature in JavaScript where an inner function has access 
+        to the outer (enclosing) function’s variables — a scope chain. 
+        Closures are created every time a function is created, at function creation time.
+        */
+
+        function outerFunction() {
+            let outerVariable = 'I am from outer scope';
+
+            function innerFunction() {
+                console.log(outerVariable);
+            }
+
+            return innerFunction;
+        }
+ 
+        /*
+         myClosure er moddhe just outerFunction er reference pass hobe na +
+         outerFunction joto parent ace sobar context pass hoy.
+         Because of Lexical Scoping .
+
+         just function execution jabe na pura lexical scope pass hobe.
+        */
+        const myClosure = outerFunction();
+        myClosure(); 
+
+
+</script>
+
+<!-- 2nd script: practical example  -->
+<script>
+
+  // naive way
+    // document.getElementById('orange').onclick = function(){
+    //     document.body.style.backgroundColor = 'orange';
+    // }
+
+    // document.getElementById('green').onclick = function(){
+    //     document.body.style.backgroundColor = 'green';
+    // }
+
+    // for 100 button we don't do it manually
+
+    function clickHandler(color){
+       // document.body.style.backgroundColor = '${color}';
+
+       // for lexical scoping we can do that
+     return function(){
+        document.body.style.backgroundColor = `${color}`;
+       }
+    }
+
+    document.getElementById('orange').onclick = clickHandler('orange');
+    document.getElementById('green').onclick = clickHandler('green');
+
+   
+</script>
+</html>

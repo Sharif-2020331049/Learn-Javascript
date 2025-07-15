@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>readyState Values</h2>
+    <h2>0 (UNSENT):   The XMLHttpRequest object has been created, but the open() method hasn't been called yet.</h2>
+    <h2>1 (OPENED): The open() method has been called, but the request hasn't been sent yet with send().</h2>
+    <h2>2 (HEADERS_RECEIVED): The send() method has been called, and the headers of the response and the status are available.</h2>
+    <h2>3 (LOADING): The response body is being received (some data has been received but the response is not yet complete).</h2>
+    <h2>4 (DONE): The request is complete, and the response is fully received.</h2>
+    
+</body>
+
+<script>
+
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+  
+    //just connect not open yet untill we send it.
+    xhr.open('GET', requestUrl);
+    
+  
+    // Whenever state changes, this function will be called.
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            //this used for which context response
+            // const data = this.responseText;
+            
+            // but this data is a string variable.
+            // console.log(typeof data);
+
+            // we need to convert it Json format
+
+            const data = JSON.parse(this.responseText);
+            console.log(data.followers);
+
+            console.log(this.responseText);
+
+
+        }
+     }
+    xhr.send();
+   
+
+</script>
+</html>

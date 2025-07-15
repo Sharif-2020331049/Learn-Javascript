@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Events in JS</title>
+    <style>
+        button{
+            height: 20px;
+            width: 200px;
+            text-align: center;
+            background-color: chartreuse;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 300px 300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+</body>
+
+<script>
+    function random()
+    {
+        return parseInt(Math.random()*256)
+    }
+   const btn = document.getElementById('btn');
+  // console.log(btn);
+
+   btn.addEventListener('click', 
+    ()=>{
+        const randomColor = `rgb(${random()},${random()},${random()})`;
+        document.body.style.backgroundColor = randomColor;
+    }
+   )
+</script>
+</html>
